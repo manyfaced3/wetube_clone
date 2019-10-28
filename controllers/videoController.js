@@ -1,9 +1,16 @@
-import {videosList} from "../db";
+import routes from "../routes";
+import Video from "../models/Video";
 
-export const home = (req, res) =>{
-  res.render("home", { pageTitle: "Home", videosList });
+export const home = async (req, res) => {
+  try {
+    const videosList = await Video.find({});
+    res.render("home", { pageTitle: "Home", videosList });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videosList });
+  }
 };
-  
+
 export const search = (req, res) => {
   const {
     query: { term: searchingWord }
@@ -14,8 +21,23 @@ export const search = (req, res) => {
 export const videos = (req, res) =>
   res.render("videos", { pageTitle: "Videos" });
 
-export const upload = (req, res) =>
+export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
+
+export const postUpload = async(req, res) => {
+  const {
+    body: { title, description },
+    file: { path }
+  } = req;
+  const newVideo = await Video.create({
+    fileUrl : path,
+    title : title,
+    description : description
+  })
+  console.log(newVideo);
+  //To Do : Upload & save video
+  res.redirect(routes.videoDetails(newVideo.id));
+};
 
 export const videoDetails = (req, res) =>
   res.render("videoDetails", { pageTitle: "Video Details" });
