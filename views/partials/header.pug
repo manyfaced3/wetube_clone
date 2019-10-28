@@ -1,0 +1,13 @@
+header.header
+  .header__culumn
+    a(href=routes.home)
+      i.fab.fa-youtube
+  .header__culumn
+    form(action=routes.search, method="get")
+      input(type="text", placeholder="Search...", name="term")
+  .header__culumn
+    ul
+      li
+        a(href=routes.join) Join
+      li
+        a(href=routes.login) Login
