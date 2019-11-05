@@ -5,6 +5,8 @@ header.header
   .header__culumn
     form(action=routes.search, method="get")
       input(type="text", placeholder="Search...", name="term")
+      button(type="button")
+        i.fa.fa-search
   .header__culumn
     ul
       if !user.isAuthenticated
@@ -14,8 +16,12 @@ header.header
           a(href=routes.login) Login
       else
         li
-          a(href=routes.videos+routes.upload) Upload
+          a(href=routes.videos+routes.upload)
+            i.fas.fa-upload
+              span.tooltiptext Upload Video
         li
-          a(href=routes.userDetails(user.id)) Profile
+          a(href=routes.userDetails(user.id))
+           i.fas.fa-user-circle
+              span.tooltiptext Profile
         li
           a(href=routes.logout) Logout

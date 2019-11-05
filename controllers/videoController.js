@@ -12,11 +12,19 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   const {
     query: { term: searchingWord }
   } = req;
-  res.render("search", { pageTitle: "Search", searchingWord, videos });
+  let videosList = [];
+  try {
+    videosList = await Video.find({
+      title: { $regex: searchingWord, $options: "i" }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  res.render("search", { pageTitle: "Search", searchingWord, videosList });
 };
 
 export const videos = (req, res) =>
