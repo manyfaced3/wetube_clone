@@ -1,0 +1,17 @@
+.social-login {
+  margin: 0.5rem 0;
+  button {
+    color: $white;
+    font-size: 1rem;
+    padding: 4px 1rem;
+    i {
+      padding-right: 4px;
+    }
+  }
+  .social-login--github {
+    background-color: $black;
+  }
+  .social-login--facebook {
+    background-color: #3a5998;
+  }
+}

@@ -1,0 +1,50 @@
+.video-detail__container {
+  display: flex;
+  flex-flow: column wrap;
+  & > * {
+    display: flex;
+    margin: 0 auto;
+  }
+  .video__player {
+    justify-content: center;
+    video {
+      width: 95vw;
+      max-width: 900px;
+    }
+  }
+  .video__info {
+    width: 95vw;
+    max-width: 900px;
+    flex-flow: column;
+    .video__titleAndButton {
+      display: flex;
+      flex-flow: row;
+      .video__title {
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 2.4rem;
+      }
+      a {
+        margin-left: auto;
+        button {
+          background-color: $dark-blue;
+          color: $white;
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+    .video__description,
+    .video__views {
+      font-size: 1.15rem;
+      font-weight: 100;
+    }
+  }
+  .video__comments {
+    font-size: 1.15rem;
+    font-weight: 100;
+    width: 95vw;
+    max-width: 900px;
+    flex-flow: column;
+  }
+}

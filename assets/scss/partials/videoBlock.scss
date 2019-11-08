@@ -1,0 +1,13 @@
+a {
+  display: flex;
+  flex-flow: column;
+  .videoBlock__thumbnail {
+    width: 100%;
+  }
+  .videoBlock__title {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    max-height: 4rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+}
