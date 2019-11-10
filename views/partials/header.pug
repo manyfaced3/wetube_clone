@@ -9,7 +9,7 @@ header.header
         i.fa.fa-search
   .header__culumn
     ul
-      if !user.isAuthenticated
+      if !user
         li
           a(href=routes.join) Join
         li
