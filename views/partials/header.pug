@@ -9,7 +9,7 @@ header.header
         i.fa.fa-search
   .header__culumn
     ul
-      if !user
+      if !loggedUser
         li
           a(href=routes.join) Join
         li
@@ -20,7 +20,7 @@ header.header
             i.fas.fa-upload
               span.tooltiptext Upload Video
         li
-          a(href=routes.userDetails(user.id))
+          a(href=routes.me)
            i.fas.fa-user-circle
               span.tooltiptext Profile
         li
